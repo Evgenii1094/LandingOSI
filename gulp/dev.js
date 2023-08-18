@@ -1,20 +1,21 @@
 const gulp = require('gulp');
 const nunjucks = require('gulp-nunjucks-render');
-const sass = require('gulp-sass')(require('sass'));
 const browserSync = require('browser-sync').create();
-const autoprefixer = require('gulp-autoprefixer');
 const clean = require('gulp-clean');
 const fs = require('fs');
+const changed = require('gulp-changed');
+const webpHTML = require('gulp-webp-html');
+const webp = require('gulp-webp');
+const autoprefixer = require('autoprefixer');
 const sourceMaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass')(require('sass'));
+const postcss = require('gulp-postcss');
+const postcssSyntaxScss = require('postcss-scss');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const webpack = require('webpack-stream');
 const babel = require('gulp-babel');
 const imagemin = require('gulp-imagemin');
-const changed = require('gulp-changed');
-const webpHTML = require('gulp-webp-html');
-const webpCss = require('gulp-webp-css');
-const webp = require('gulp-webp');
 
 gulp.task('clean:dev', function (done) {
 	if (fs.existsSync('./dist/')) {
@@ -54,13 +55,14 @@ gulp.task('nunjucks:dev', function () {
 gulp.task('sass:dev', function () {
 	return (
 		gulp
-			.src('./src/scss/*.scss')
+			.src('./src/scss/**/*.scss')
 			.pipe(changed('./dist/css/'))
 			.pipe(plumber(plumberNotify('SCSS')))
 			.pipe(sourceMaps.init())
-			.pipe(autoprefixer())
-			.pipe(webpCss())
-			.pipe(sass())
+			.pipe(sass().on('error', sass.logError))
+			.pipe(postcss([
+				autoprefixer()
+			], { syntax: postcssSyntaxScss }))
 			.pipe(sourceMaps.write())
 			.pipe(gulp.dest('./dist/css/'))
 			.pipe(browserSync.stream())
@@ -79,7 +81,7 @@ gulp.task('images:dev', function () {
 
 gulp.task('fonts:dev', function () {
 	return gulp
-		.src('./src/fonts/**/*')
+		.src('./src/fonts/**/*.woff2')
 		.pipe(changed('./dist/fonts/'))
 		.pipe(gulp.dest('./dist/fonts/'))
 		.pipe(browserSync.stream())
@@ -107,6 +109,6 @@ gulp.task('watch:dev', function () {
 	gulp.watch('./src/scss/**/*.scss', gulp.parallel('sass:dev'));
 	gulp.watch('./src/nunjucks/**/*.njk', gulp.parallel('nunjucks:dev'));
 	gulp.watch('./src/img/**/*', gulp.parallel('images:dev'));
-	gulp.watch('./src/fonts/**/*', gulp.parallel('fonts:dev'));
+	gulp.watch('./src/fonts/**/*.woff2', gulp.parallel('fonts:dev'));
 	gulp.watch('./src/js/**/*.js', gulp.parallel('js:dev'));
 });

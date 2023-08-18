@@ -1,0 +1,47 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Caveat'), local('Caveat-Regular'), url('../fonts/Caveat/Caveat-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Gotham Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gotham Pro'), local('GothamPro-Regular'), url('../fonts/GothamPro/GothamPro-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Gotham Pro';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Gotham Pro'), local('GothamPro-RegularItalic'), url('../fonts/GothamPro/GothamPro-RegularItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Gotham Pro';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Gotham Pro'), local('GothamPro-Medium'), url('../fonts/GothamPro/GothamPro-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Gotham Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('GothamPro'), local('GothamPro-Bold'), url('../fonts/GothamPro/GothamPro-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Gotham Pro';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Gotham Pro'), local('GothamPro-Black'), url('../fonts/GothamPro/GothamPro-Black.woff2') format('woff2');
+}

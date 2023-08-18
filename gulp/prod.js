@@ -6,7 +6,7 @@ const webpHTML = require('gulp-webp-html');
 
 // SASS
 const sass = require('gulp-sass')(require('sass'));
-const autoprefixer = require('gulp-autoprefixer');
+const autoprefixer = require('autoprefixer');
 const csso = require('gulp-csso');
 const webpCss = require('gulp-webp-css');
 

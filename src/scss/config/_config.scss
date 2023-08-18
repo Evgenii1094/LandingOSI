@@ -1,0 +1,47 @@
+// Breakpoints
+$breakpoints: (
+        xsmall: 0,
+        small: 480px,
+        medium: 768px,
+        large: 1280px,
+);
+
+// Primary colors
+$color-1--1: #21bdab;
+$color-1--2: #feb524;
+
+// Secondary colors
+$color-2--1: #242424;
+
+// Neutral colors
+$color-white: #fff;
+$color-black: #000;
+
+// Color grey
+$color-3--1: #efefef;
+$color-3--2: #c5c5c5;
+
+:root {
+  // Font family
+  --typo-1: 'Caveat', Arial, Tahoma, sans-serif;
+  --typo-2: 'Gotham Pro', Arial, Tahoma, sans-serif;
+
+  // Primary color
+  --color-1--1: #{$color-1--1}; // #21bdab
+  --color-1--2: #{lighten(saturate(adjust-hue($color-1--1, -133), 28.82), 13.33)}; // #feb524
+
+  // Scondary color
+  --color-2--1: #{$color-2--1}; // #242424
+
+  // Font weight
+  --fw-thin: 100;
+  --fw-extralight: 200;
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+}
+
