@@ -1,0 +1,32 @@
+.title {
+    @include font(var(--typo-1), 7rem, var(--fw-bold));
+    color: var(--color-2--1);
+    display: inline-flex;
+    line-height: 1.2;
+    position: relative;
+
+    @include breakpoint(medium down) {
+        font-size: 6rem;
+    }
+
+    @include breakpoint(small down) {
+        font-size: 5rem;
+    }
+
+    &::before {
+        @include absolute(null, null, 0, 0);
+        @include size(100%, 4px);
+        background-color: var(--color-1--2);
+        content: '';
+    }
+
+    &.is-medium {
+        @include breakpoint(large) {
+            font-size: 6rem;
+        }
+    }
+
+    &.is-small {
+        font-size: 4.5rem;
+    }
+}

@@ -1,9 +1,16 @@
 /* Base */
-@import "./typography";
+@import "typography";
 @import "./config/breakpoints";
 @import "./config/mixins";
 @import "./config/config";
 @import "./config/reset";
 @import "./config/container";
+
+/* Templates */
+@import "./templates/title";
+@import "./templates/item-title";
+@import "./templates/category";
+@import "./templates/teaser";
+@import "./templates/button";
 
 /* Blocks */

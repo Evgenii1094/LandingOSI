@@ -1,0 +1,10 @@
+.category {
+    @include font(var(--typo-2), 1.4rem, var(--fw-medium));
+    color: var(--color-1--2);
+    text-transform: uppercase;
+
+    &.is-small {
+        color: $color-white;
+        font-size: 1.3rem;
+    }
+}

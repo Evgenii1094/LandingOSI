@@ -1,0 +1,12 @@
+.teaser {
+    @include font(var(--typo-2), 1.5rem, var(--fw-normal));
+    color: var(--color-2--1);
+
+    @include breakpoint(small down) {
+        font-size: 1.3rem;
+    }
+
+    &.is-small {
+        font-size: 1.3rem;
+    }
+}

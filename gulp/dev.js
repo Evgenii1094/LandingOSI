@@ -9,6 +9,7 @@ const webp = require('gulp-webp');
 const autoprefixer = require('autoprefixer');
 const sourceMaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass')(require('sass'));
+const stylelint = require('gulp-stylelint');
 const postcss = require('gulp-postcss');
 const postcssSyntaxScss = require('postcss-scss');
 const plumber = require('gulp-plumber');
@@ -56,6 +57,11 @@ gulp.task('sass:dev', function () {
 	return (
 		gulp
 			.src('./src/scss/**/*.scss')
+            .pipe(stylelint({
+                reporters: [
+                    {formatter: 'string', console: true}
+                ]
+            }))
 			.pipe(changed('./dist/css/'))
 			.pipe(plumber(plumberNotify('SCSS')))
 			.pipe(sourceMaps.init())
